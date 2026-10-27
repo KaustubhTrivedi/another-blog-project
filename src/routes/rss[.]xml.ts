@@ -14,7 +14,7 @@ export const Route = createFileRoute('/rss.xml')({
     handlers: {
       GET: async ({ request }) => {
         // SITE_URL wins when the server sits behind a proxy that rewrites the host.
-        const root = (process.env.SITE_URL ?? new URL(request.url).origin).replace(/\/$/, '')
+        const root = (process.env.SITE_URL || new URL(request.url).origin).replace(/\/$/, '')
         const posts = await fetchPostsWithBody()
         const items = posts
           .map((post) => {

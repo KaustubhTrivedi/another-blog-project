@@ -51,7 +51,7 @@ The about page is **Content Manager → About**.
 ```
 src/lib/strapi.server.ts   Strapi client, cache, and Markdown rendering (server only)
 src/lib/content.ts         Server functions that route loaders call
-src/routes/                One file per page, plus rss[.]xml.ts and api/revalidate.ts
+src/routes/                One file per page, plus rss[.]xml.ts, robots[.]txt.ts, api/revalidate.ts
 src/styles/site.css        All styling, including dark mode
 server.mjs                 Production server
 cms/src/api/               Strapi content types: post, tag, about
@@ -69,7 +69,7 @@ Blog (`.env`):
 | `STRAPI_TOKEN` | Optional read-only API token, if you turn off public read access. |
 | `REVALIDATE_SECRET` | Must match `cms/.env`. |
 | `REVALIDATE_SECONDS` | How long cached data counts as fresh. Default `60`. |
-| `SITE_URL` | Public URL for RSS links. Defaults to the request's origin. |
+| `SITE_URL` | Public URL for RSS and robots.txt links. Defaults to the request's origin. |
 | `PORT` | Port for `npm start`. Default `3000`. |
 
 CMS (`cms/.env`): `BLOG_URL` is the blog URL Strapi calls to clear the cache, and `REVALIDATE_SECRET` is the same secret. The other values are Strapi's own settings.
